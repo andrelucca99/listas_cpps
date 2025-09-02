@@ -6,40 +6,25 @@
 /*   By: alucas-e <alucas-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 09:57:43 by andre             #+#    #+#             */
-/*   Updated: 2025/09/01 13:18:59 by alucas-e         ###   ########.fr       */
+/*   Updated: 2025/09/01 11:44:43 by alucas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Animal.hpp"
 #include "../includes/Dog.hpp"
 #include "../includes/Cat.hpp"
 
 int main() {
-    const int N = 4;
-    Animal* animals[N];
+    const Animal* dog = new Dog();
+    const Animal* cat = new Cat();
 
-    for (int i = 0; i < N; i++) {
-        if (i % 2 == 0)
-            animals[i] = new Dog();
-        else
-            animals[i] = new Cat();
-    }
+    std::cout << dog->getType() << " says: ";
+    dog->makeSound();
 
-    std::cout << "\n--- Testando deep copy ---" << std::endl;
-    Dog dog1;
-    dog1.setIdea(0, "Chase the cat");
-    Dog dog2 = dog1;
+    std::cout << cat->getType() << " says: ";
+    cat->makeSound();
 
-    std::cout << "Dog1 idea: " << dog1.getIdea(0) << std::endl;
-    std::cout << "Dog2 idea: " << dog2.getIdea(0) << std::endl;
-
-    dog2.setIdea(0, "Eat the bone");
-    std::cout << "Dog1 idea after Dog2 change: " << dog1.getIdea(0) << std::endl;
-    std::cout << "Dog2 idea after change: " << dog2.getIdea(0) << std::endl;
-
-    for (int i = 0; i < N; i++) {
-        delete animals[i];
-    }
+    delete dog;
+    delete cat;
 
     return 0;
 }
