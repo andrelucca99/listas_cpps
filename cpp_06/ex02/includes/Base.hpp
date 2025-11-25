@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alucas-e <alucas-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/23 10:09:08 by andre             #+#    #+#             */
-/*   Updated: 2025/11/24 11:17:02 by alucas-e         ###   ########.fr       */
+/*   Created: 2025/11/23 10:09:52 by andre             #+#    #+#             */
+/*   Updated: 2025/11/25 13:42:13 by alucas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/ScalarConverter.hpp"
+#pragma once
 
-int main(int argc, char **argv)
-{
-	if (argc != 2)
-	{
-		std::cout << "Usage: ./convert <literal>" << std::endl;
-		return 1;
-	}
+#include <ctime>
+#include <cstdlib>
+#include <iostream>
 
-	ScalarConverter::convert(argv[1]);
-	return 0;
-}
+class Base {
+	public:
+		virtual ~Base();
+};
+
+class A : public Base {};
+class B : public Base {};
+class C : public Base {};

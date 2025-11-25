@@ -6,20 +6,35 @@
 /*   By: alucas-e <alucas-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 10:09:08 by andre             #+#    #+#             */
-/*   Updated: 2025/11/24 11:17:02 by alucas-e         ###   ########.fr       */
+/*   Updated: 2025/11/24 14:51:58 by alucas-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/ScalarConverter.hpp"
+#include <iostream>
+#include "./includes/Base.hpp"
 
-int main(int argc, char **argv)
+Base* generate(void);
+void identifyP(Base* p);
+void identifyR(Base& p);
+
+int main(void)
 {
-	if (argc != 2)
-	{
-		std::cout << "Usage: ./convert <literal>" << std::endl;
-		return 1;
-	}
+	 std::srand(static_cast<unsigned int>(std::time(NULL)));
 
-	ScalarConverter::convert(argv[1]);
-	return 0;
+    // Fazer vários testes:
+    for (int i = 0; i < 5; ++i) {
+        Base* p = generate();
+        // opcional: imprimir que tipo foi gerado enviando para identify
+        identifyP(p);        // por ponteiro
+        identifyR(*p);       // por referência
+        delete p;
+        std::cout << "----\n";
+    }
+
+    // Testar comportamento com um objeto concreto (A) criado manualmente:
+    A a;
+    identifyP(&a);
+    identifyR(a);
+
+    return 0;
 }
