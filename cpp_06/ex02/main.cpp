@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alucas-e <alucas-e@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 10:09:08 by andre             #+#    #+#             */
-/*   Updated: 2025/11/24 14:51:58 by alucas-e         ###   ########.fr       */
+/*   Updated: 2025/11/26 13:31:23 by andre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include "./includes/Base.hpp"
 
 Base* generate(void);
-void identifyP(Base* p);
-void identifyR(Base& p);
+void identify(Base* p);
+void identify(Base& p);
 
 int main(void)
 {
@@ -25,16 +25,16 @@ int main(void)
     for (int i = 0; i < 5; ++i) {
         Base* p = generate();
         // opcional: imprimir que tipo foi gerado enviando para identify
-        identifyP(p);        // por ponteiro
-        identifyR(*p);       // por referência
+        identify(p);        // por ponteiro
+        identify(*p);       // por referência
         delete p;
         std::cout << "----\n";
     }
 
     // Testar comportamento com um objeto concreto (A) criado manualmente:
     A a;
-    identifyP(&a);
-    identifyR(a);
+    identify(&a);
+    identify(a);
 
     return 0;
 }

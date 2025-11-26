@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Functions.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alucas-e <alucas-e@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 10:10:50 by andre             #+#    #+#             */
-/*   Updated: 2025/11/24 14:55:29 by alucas-e         ###   ########.fr       */
+/*   Updated: 2025/11/26 13:31:05 by andre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Base* generate(void) {
 	}
 }
 
-void identifyP(Base* p) {
+void identify(Base* p) {
 	if (!p) {
 		std::cout << "identify(pointer): null pointer\n";
 		return;
@@ -37,7 +37,7 @@ void identifyP(Base* p) {
 	}
 }
 
-void identifyR(Base& p) {
+void identify(Base& p) {
     try {
         (void)dynamic_cast<A&>(p);
         std::cout << "identify(reference): A" << std::endl;
