@@ -6,7 +6,7 @@
 /*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:04:35 by andre             #+#    #+#             */
-/*   Updated: 2025/12/03 08:45:00 by andre            ###   ########.fr       */
+/*   Updated: 2025/12/22 08:51:57 by andre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,16 @@ int main(void)
 
     std::cout << sp.shortestSpan() << std::endl;
     std::cout << sp.longestSpan() << std::endl;
+
+    std::vector<int> v;
+    for (int i = 0; i < 10000; i++)
+        v.push_back(i);
+    
+    Span spRange(10000);
+    spRange.addRange(v.begin(), v.end());
+
+    std::cout << spRange.shortestSpan() << std::endl;
+    std::cout << spRange.longestSpan() << std::endl;
 
     return 0;
 }
